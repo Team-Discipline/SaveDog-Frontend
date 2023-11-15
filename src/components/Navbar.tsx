@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { NavbarList } from '../app/constants/navbarList'; // Import NavbarList
+import { NavbarList } from '../constants/navbarList'; // Import NavbarList
 
 interface NavItem {
   navItem: string;

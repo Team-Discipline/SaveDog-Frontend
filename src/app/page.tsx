@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Head from "next/head";
-import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: 'Contact',

@@ -11,7 +11,11 @@ const imageListContainerStyle: React.CSSProperties = {
   justifyContent: 'center',
 };
 
-const arrowButtonStyle: React.CSSProperties = {};
+const arrowButtonStyle: React.CSSProperties = {
+  width: '30px',
+  height: '30px',
+  fontSize: '30px',
+};
 
 const imageWrapperStyle: React.CSSProperties = {
   display: 'flex',
@@ -19,8 +23,8 @@ const imageWrapperStyle: React.CSSProperties = {
 };
 
 const imageItemStyle: React.CSSProperties = {
-  width: '100px',
-  height: '100px',
+  width: '150px',
+  height: '150px',
   maxWidth: '400px',
   margin: '0 10px',
 };
@@ -80,7 +84,7 @@ const DogsListView: React.FC<ImageListProps> = ({images}) => {
             src={images[index]}
             alt={`Image ${index + 1}`}
             className={`image-item ${index === currentIndex ? 'center-image' : ''}`}
-            style={{ width: '100px', height: '100px' }}
+            style={{ width: '150px', height: '150px' }}
           />
         ))}
       </div>
@@ -92,7 +96,7 @@ const DogsListView: React.FC<ImageListProps> = ({images}) => {
         &lt;
       </button>
       <div style={imageWrapperStyle}>{renderImages()}</div>
-      <button onClick={goToNext} className="arrow-button">
+      <button onClick={goToNext}  style={arrowButtonStyle} className="arrow-button">
         &gt;
       </button>
 

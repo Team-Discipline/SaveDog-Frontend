@@ -1,9 +1,10 @@
+import ContentBox from "@/components/contentBox";
 
 const Page = () => {
 
   return (
     <div>
-      강아지 등록페이지
+        강아지 등록페이지
     </div>
   )
 }

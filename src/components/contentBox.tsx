@@ -50,9 +50,9 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height }): ReactEleme
                 onMouseOut={handleMouseOut}
                 style={{
                     marginLeft: '80px',
-                    '--c': '#1095c1', /* the color */
-                    '--b': '1px',    /* border length*/
-                    '--d': '8px',    /* the cube depth */
+                    '--c': '#1095c1',
+                    '--b': '1px',
+                    '--d': '8px',
                     '--_s': `calc(var(--d) + var(--b))`,
                     color: 'var(--c)',
                     border: '1px solid #0000',
@@ -83,10 +83,12 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height }): ReactEleme
                         var(--d) calc(100% - var(--d))
                         )`,
                     transition: '0.1s',
-                    width: `${width}`,
-                    height: `${height}`,
+                    width: `${width}px`,
+                    height: `${height}px`,
                 }}
             >
+                <img alt="" src={content} width={width} height={height}/>
+
             </div>
         </>
 

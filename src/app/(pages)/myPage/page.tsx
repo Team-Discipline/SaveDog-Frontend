@@ -1,5 +1,3 @@
-import ContentBox from "@/components/contentBox";
-
 const Page = () => {
 
   return (

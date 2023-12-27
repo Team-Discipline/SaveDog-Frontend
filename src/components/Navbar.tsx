@@ -92,12 +92,13 @@ export const Navbar = () => {
             <Search/>
           </div>
           <div className='flex items-center space-x-1'>
-            <Link href='/login' className='py-5 px-3'>
-              Login
+            <Link href='/login' className='py-5 px-3' style={{width: '100px'}}>
+              로그인
             </Link>
-            <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray'>
-              Signup
+            <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '90px'}}>
+              회원가입
             </Link>
+
           </div>
         </div>
       </div>

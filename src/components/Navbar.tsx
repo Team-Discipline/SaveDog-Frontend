@@ -11,9 +11,9 @@ interface NavItem {
 
 export const Navbar = () => {
   return (
-    <nav className="bg-gray-100" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
+    <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
       <div className=" mx-auto px-4">
-        <div className="flex justify-between">
+        <div className="flex justify-between h-12">
           {/* 메뉴 */}
           <div className="flex space-x-4 items-center">
             <div>
@@ -88,7 +88,7 @@ export const Navbar = () => {
               </svg>
             </div>
           </div>
-          <div className="w-2/3" style={{marginTop: '1rem'}}>
+          <div className="w-2/3">
             <Search/>
           </div>
           <div className='flex items-center space-x-1'>
@@ -98,7 +98,9 @@ export const Navbar = () => {
             <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '90px'}}>
               회원가입
             </Link>
-
+            {/*<di>*/}
+            {/*  <*/}
+            {/*</di>*/}
           </div>
         </div>
       </div>

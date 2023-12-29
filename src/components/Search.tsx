@@ -16,7 +16,7 @@ const Search = () => {
   }, []); // 빈 배열을 전달하여 컴포넌트가 처음 마운트될 때만 이펙트 실행
 
   return (
-    <div className="flex-grow flex items-center">
+    <div className="flex-grow flex items-center h-12">
       {/* Add your search input field and any other necessary elements */}
       {!isSmallScreen && (
         <input
@@ -26,7 +26,7 @@ const Search = () => {
           style={{
             maxWidth: '60rem',
             width: '100%',
-            height: '3rem',
+            height: '2rem',
             margin: '0 1rem',
             background: 'rgba(255, 255, 255, .4)',
             borderRadius: '5px'

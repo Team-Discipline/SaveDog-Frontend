@@ -4,26 +4,6 @@ interface ContentBoxProps {
     width: number;
     height: number;
 }
-// h3 {
-//     font-family: system-ui, sans-serif;
-//     font-size: 3rem;
-//     margin:0;
-//     cursor: pointer;
-//     padding: 0 .1em;
-// }
-//
-// .d-1:hover {
-//     transform: translate(0,0);
-//     clip-path:
-//     polygon(
-//         0% var(--d),
-//     var(--d) 0%,
-//     100% 0%,
-//     100% calc(100% - var(--d)),
-//     calc(100% - var(--d)) 100%,
-//     0% 100%
-// );
-// }
 import React, { FC, ReactElement, useState } from 'react';
 
 interface ContentBoxProps {
@@ -50,6 +30,7 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height }): ReactEleme
                 onMouseOut={handleMouseOut}
                 style={{
                     marginLeft: '80px',
+                    // @ts-ignore
                     '--c': '#1095c1',
                     '--b': '1px',
                     '--d': '8px',

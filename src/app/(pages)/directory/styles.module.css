@@ -1,17 +1,14 @@
 /* styles.module.css */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
+
 
 .responsive_button {
     flex: 1;
     width: 7%;
+    height: 45px;
     border-radius: 5px;
     max-width: 260px;
     min-width: 200px;
-    padding: 1rem;
+    padding: 1px;
     background-color: blue;
     color: white;
     transition: background-color 0.3s ease;

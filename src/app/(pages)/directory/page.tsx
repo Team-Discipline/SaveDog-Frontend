@@ -8,21 +8,23 @@ import {ContentList} from "@/app/(pages)/directory/contentList"; // 스타일 �
 const Page = () => {
     return (
         <div className="w-full flex flex-col justify-center items-center">
-            <section className="text-3xl font-bold">
+            <section className="my-6 text-6xl font-bold">
                 <h1>Browse</h1>
             </section>
-            <section className="flex">
-                <a href="/directory" className="flex items-center py-5 px-2 text-gray-700">
-                    <span className="font-bold">Categories</span>
-                </a>
-                <a href="/directory" className="flex items-center py-5 px-2 text-gray-700">
-                    <span className="font-bold">Live Channels</span>
-                </a>
-            </section>
-            <section className="flex flex-wrap gap-4">
+            <section className="flex flex-wrap justify-center my-5">
                 {ButtonList.map(({buttonItem, buttonImg}, index) => (
                     <BrowseButton key={index} name={buttonItem} src={buttonImg} />
                 ))}
+            </section>
+            <section className="flex">
+                <div className="flex items-center text-xl">
+                    <a href="/directory"  >
+                        <span className="font-bold">Categories</span>
+                    </a>
+                    <a href="/directory" className="ml-5">
+                        <span className="font-bold">Live Channels</span>
+                    </a>
+                </div>
             </section>
             <section>
                 {/*<ContentBox content='#' width={250} height={350}/>*/}

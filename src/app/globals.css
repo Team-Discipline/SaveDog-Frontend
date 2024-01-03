@@ -32,7 +32,7 @@
     flex-grow: 1 !important;
     flex-shrink: 2 !important;
     width: 10% !important;
-    /*display: flex !important;*/
+    display: flex !important;
     -webkit-box-align: center !important;
     align-items: center !important;
     -webkit-box-pack: end !important;

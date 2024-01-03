@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import {NavbarList} from '../constants/navbarList';
-import Search from "@/components/Search"; // Import NavbarList
+import Search from "@/components/Search";
+import ProfileButton from "@/components/ProfileButton"; // Import NavbarList
 
 interface NavItem {
   navItem: string;
@@ -12,8 +13,8 @@ interface NavItem {
 export const Navbar = () => {
   return (
     <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
-      <div className=" mx-auto px-4">
-        <div className="flex justify-between h-12">
+      <div className="mx-auto px-4">
+        <div className="flex justify-between h-12 jqCeVt">
           {/* 메뉴 */}
           <div className="flex space-x-4 items-center">
             <div>
@@ -88,19 +89,25 @@ export const Navbar = () => {
               </svg>
             </div>
           </div>
-          <div className="w-2/3">
+          <div className="w-2/3" style={{justifyContent: 'center', display: 'flex'}}>
             <Search/>
           </div>
-          <div className='flex items-center space-x-1'>
-            <Link href='/login' className='py-5 px-3' style={{width: '100px'}}>
-              로그인
-            </Link>
-            <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '90px'}}>
-              회원가입
-            </Link>
-            {/*<di>*/}
-            {/*  <*/}
-            {/*</di>*/}
+          <div className="jdpzyl">
+            <div className="fnsfLT">
+              <div className="cQZlhV">
+                <div className='flex items-center space-x-1'>
+                  <Link href='/login' className='py-2 px-3' style={{width: '72px'}}>
+                    로그인
+                  </Link>
+                  <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}>
+                    회원가입
+                  </Link>
+                </div>
+                <div data-a-target="dropdown-up" className="Layout-sc-1xcs6mc-0 bfqNgN">
+                  <ProfileButton/>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

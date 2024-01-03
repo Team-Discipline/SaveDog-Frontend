@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+}
 .fDFkyX {
     fill: #fff;
 }
@@ -12,4 +17,73 @@
 
 :root {
     --shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0px 2px rgba(0, 0, 0, 0.2);
+}
+.jqCeVet {
+    background-color: #fff !important;
+    display: flex !important;
+    box-shadow: var(--shadow-elevation-1) !important;
+    -webkit-box-align: stretch !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    height: 100% !important;
+}
+.jdpzyl {
+    -webkit-box-flex: 1 !important;
+    flex-grow: 1 !important;
+    flex-shrink: 2 !important;
+    width: 10% !important;
+    /*display: flex !important;*/
+    -webkit-box-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: end !important;
+    justify-content: flex-end !important;
+}
+.fnsfLT {
+    height: 100% !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    display: flex !important;
+}
+.cQZlhV {
+    flex-wrap: nowrap !important;
+    display: flex !important;
+}
+.bfqNgN {
+    padding-left: 0.5rem !important;
+    position: relative !important;
+    display: flex !important;
+    -webkit-box-flex: 1 !important;
+    flex-grow: 1 !important;
+    -webkit-box-align: stretch !important;
+    align-items: stretch !important;
+    height: 100% !important;
+}
+.hatIYF {
+    /*display: inline-block !important;*/
+    position: relative !important;
+}
+.eSFFfM {
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    border-radius: 0.4rem;
+    height: 3rem;
+    width: 3rem;
+    background-color: transparent;
+    color: #0e0e10;
+}
+.fjwcvR {
+    pointer-events: none;
+    width: 2rem;
+    height: 2rem;
+}
+.bCFHWE {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
 }

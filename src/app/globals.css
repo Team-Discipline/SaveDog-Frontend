@@ -33,15 +33,15 @@ section{
     height: 100% !important;
 }
 .jdpzyl {
-    -webkit-box-flex: 1 !important;
-    flex-grow: 1 !important;
-    flex-shrink: 2 !important;
-    width: 10% !important;
-    display: flex !important;
-    -webkit-box-align: center !important;
-    align-items: center !important;
-    -webkit-box-pack: end !important;
-    justify-content: flex-end !important;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.jdpzyl > * {
+    margin-right: 1rem;
+}
+.jdpzyl > *:last-child{
+    margin-right: 0;
 }
 .fnsfLT {
     height: 100% !important;

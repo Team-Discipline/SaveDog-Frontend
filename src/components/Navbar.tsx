@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import {NavbarList} from '../constants/navbarList';
 import Search from "@/components/Search";
@@ -11,6 +11,12 @@ interface NavItem {
 }
 
 export const Navbar = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
       <div className="mx-auto px-4">

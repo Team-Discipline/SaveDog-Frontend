@@ -4,7 +4,7 @@ const ProfileButton = () => {
   return (
     <div className="Layout-sc-1xcs6mc-0 hatIYF">
       <div data-test-selector="toggle-balloon-wrapper__mouse-enter-detector" style={{width: '100%', height: '100%', display: "inherit"}}>
-        <button data-a-target="user-menu-toggle" data-test-selector="user-menu__toggle" aria-label="유저 메뉴"style={{width: '100%', height: '100%', display: "inherit"}}>
+        <div data-a-target="user-menu-toggle" data-test-selector="user-menu__toggle" aria-label="유저 메뉴"style={{width: '100%', height: '100%', display: "inherit"}}>
           <button className="eSFFfM"
                   aria-label="유저 메뉴"style={{width: '100%', height: '100%', display: "inherit"}}>
             <div className="fjwcvR">
@@ -21,7 +21,7 @@ const ProfileButton = () => {
               </div>
             </div>
           </button>
-        </button>
+        </div>
       </div>
     </div>
   )

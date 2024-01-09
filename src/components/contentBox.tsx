@@ -1,4 +1,6 @@
 'use client'
+import Link from "next/link";
+
 interface ContentBoxProps {
     content: string;
     width: number;
@@ -10,9 +12,15 @@ interface ContentBoxProps {
     content: string;
     width: number;
     height: number;
+    category: string;
+    content_name: string;
+    views: number;
+    tags: string[];
+
 }
 
-const ContentBox: FC<ContentBoxProps> = ({ content, width, height }): ReactElement => {
+const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
+                                             category , content_name, views, tags}): ReactElement => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleMouseOver = () => {
@@ -24,12 +32,13 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height }): ReactEleme
     };
 
     return (
-        <>
+        <div className="w-1/4 flex flex-col">
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 style={{
-                    marginLeft: '80px',
+                    marginLeft: '2%',
+                    marginTop: '2%',
                     // @ts-ignore
                     '--c': '#1095c1',
                     '--b': '1px',
@@ -64,14 +73,28 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height }): ReactEleme
                         var(--d) calc(100% - var(--d))
                         )`,
                     transition: '0.1s',
-                    width: `${width}px`,
+                    width: `90%`,
                     height: `${height}px`,
                 }}
             >
-                <img alt="" src={content} width={width} height={height}/>
-
+                <div>
+                        <div className={`image-container`}>
+                            <Link href={`/category/${category}`}>
+                                <img alt="" src={content} width={width} height={height}/>
+                            </Link>
+                        </div>
+                </div>
             </div>
-        </>
+            <div className="content-details ml-1">
+                <div><span>{content_name}</span></div>
+                <span>{views}</span>
+                {/*<div className="tags">*/}
+                {/*    {tags.map(({ tag }, index) => (*/}
+                {/*        <span key={index}>{tag}</span>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
+            </div>
+        </div>
 
     );
 };

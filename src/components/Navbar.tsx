@@ -4,18 +4,20 @@ import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import {NavbarList} from '../constants/navbarList';
 import Search from "@/components/Search";
-import ProfileButton from "@/components/ProfileButton"; // Import NavbarList
+import ProfileButton from "@/components/ProfileButton";
+import {el} from "date-fns/locale";
+import Modal from "@/components/Modal"; // Import NavbarList
 
 interface NavItem {
   navItem: string;
 }
 
 export const Navbar = () => {
-  const [isClient, setIsClient] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const openModalHandler = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
@@ -102,12 +104,16 @@ export const Navbar = () => {
             <div className="fnsfLT">
               <div className="cQZlhV">
                 <div className='flex items-center space-x-1'>
-                  <Link href='/login' className='py-2 px-3' style={{width: '72px'}}>
+                  <Link href='/login' className='py-2 px-3' style={{width: '72px'}} onClick={openModalHandler}>
                     로그인
                   </Link>
-                  <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}>
+                  <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}onClick={openModalHandler}>
                     회원가입
                   </Link>
+                  {isOpen ?
+                    <Modal setIsOpen={setIsOpen}/>
+                    : null
+                  }
                 </div>
                 <div data-a-target="dropdown-up" className="Layout-sc-1xcs6mc-0 bfqNgN">
                   <ProfileButton/>

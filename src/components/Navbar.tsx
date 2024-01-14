@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect, useState} from 'react';
+import React, {MouseEventHandler, useEffect, useState} from 'react';
 import Link from 'next/link';
 import {NavbarList} from '../constants/navbarList';
 import Search from "@/components/Search";
@@ -14,9 +14,10 @@ interface NavItem {
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const openModalHandler = () => {
+  const [title, setTitle] = useState('');
+  const openModalHandler = (title: string) => {
     setIsOpen(!isOpen);
+    setTitle(title);
   };
 
   return (
@@ -104,14 +105,14 @@ export const Navbar = () => {
             <div className="fnsfLT">
               <div className="cQZlhV">
                 <div className='flex items-center space-x-1'>
-                  <Link href='/login' className='py-2 px-3' style={{width: '72px'}} onClick={openModalHandler}>
+                  <button className='py-2 px-3' style={{width: '72px'}} onClick={() => openModalHandler('login')}>
                     로그인
-                  </Link>
-                  <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}onClick={openModalHandler}>
+                  </button>
+                  <button className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}onClick={() => openModalHandler('signup')}>
                     회원가입
-                  </Link>
+                  </button>
                   {isOpen ?
-                    <Modal setIsOpen={setIsOpen}/>
+                    <Modal setIsOpen={setIsOpen} title={title}/>
                     : null
                   }
                 </div>

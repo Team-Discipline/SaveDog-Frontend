@@ -30,8 +30,10 @@ interface FormProps {
   comboBox?: ComboBoxOption[];
   datePicker?: datePickerOption[];
   onSubmit: (formData: Record<string, string>) => void;
+  submitButtonLabel?: string;
+  nextStepHandler?: () => void;
 };
-const ReusableForm: React.FC<FormProps> = ({inputs,comboBox, checkbox, datePicker, onSubmit}) => {
+const ReusableForm: React.FC<FormProps> = ({inputs,comboBox, checkbox, datePicker, onSubmit, submitButtonLabel= 'Login', nextStepHandler}) => {
   const initialFormState: Record<string, string> = {};
   inputs.forEach((input) => {
     initialFormState[input.name] = input.initialValue || '';
@@ -46,6 +48,11 @@ const ReusableForm: React.FC<FormProps> = ({inputs,comboBox, checkbox, datePicke
       [inputName]: e.target.value,
     });
   };
+  const handleNextStep = () => {
+    if (nextStepHandler && typeof nextStepHandler === 'function') {
+      nextStepHandler();
+    }
+  }
   const handleDateChange = (date: Date | null, datepickerName: string) => {
     setSelectedDate(date)
     setFormData({
@@ -74,9 +81,9 @@ const ReusableForm: React.FC<FormProps> = ({inputs,comboBox, checkbox, datePicke
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{maxWidth: '400px', margin: 'auto', marginTop: '10%'}}>
+    <form onSubmit={handleSubmit} style={{maxWidth: '400px'}}>
       {inputs.map((input) => (
-        <div key={input.name} style={{marginBottom: '15px'}}>
+        <div key={input.name} style={{marginBottom: '9px'}}>
         <label key={input.name} style={{display: 'block', marginBottom: '5px'}}>
           {input.label}:
           <input
@@ -138,7 +145,19 @@ const ReusableForm: React.FC<FormProps> = ({inputs,comboBox, checkbox, datePicke
         ))
       )}
       <br />
-      <button type="submit" style={{ background: '#4caf50', color: 'white', padding: "10px", borderRadius: "4px", cursor: "pointer" }}>Submit</button>
+      {/* '다음 단계로' 버튼 렌더링 */}
+      {nextStepHandler && (
+        <button type="button" onClick={handleNextStep} style={{ background: '#4caf50', color: 'white', padding: "10px", borderRadius: "4px", cursor: "pointer" }}>
+          {submitButtonLabel}
+        </button>
+      )}
+
+      {/* 'Submit' 버튼 렌더링 */}
+      {!nextStepHandler && (
+        <button type="submit" style={{ background: '#4caf50', color: 'white', padding: "10px", borderRadius: "4px", cursor: "pointer" }}>
+          {submitButtonLabel}
+        </button>
+      )}
     </form>
   );
 };

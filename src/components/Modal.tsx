@@ -1,25 +1,26 @@
 import {useEffect, useRef, useState} from "react";
 import ReusableForm from "@/components/Form";
 
-const Modal = ({setIsOpen, id, title, content, writer}: any) => {
-  const [currentStep, setCurrentStep] = useState(1);
+const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
+  const [label, setLabel] = useState('');
+  const [currentStep, setCurrentStep] = useState<number>(1);
   const loginForm = [
-    {name: '아이디', label: '아이디', type: 'id'},
-    {name: '비밀번호', label: '비밀번호', type: 'password'},
-  ]
+    { name: '아이디', label: '아이디', type: 'id' },
+    { name: '비밀번호', label: '비밀번호', type: 'password' },
+  ];
 
   const signupForm = [
     [
-      {name: 'id', label: 'id', type: 'id'},
-      {name: 'password', label: 'Password', type: 'password'},
+      { name: 'id', label: 'id', type: 'id' },
+      { name: 'password', label: 'Password', type: 'password' },
     ],
     [
-      {name: 'phone', label: 'Phone', type: 'tel', pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}'},
+      { name: 'phone', label: 'Phone', type: 'tel', pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}' },
     ],
     [
-      {name: 'confirm password', label: 'Confirm Password', type: 'confirm password'},
+      { name: 'confirm password', label: 'Confirm Password', type: 'confirm password' },
     ]
-  ]
+  ];
 
   const closeModalHandler = () => {
     setIsOpen(false);
@@ -30,7 +31,6 @@ const Modal = ({setIsOpen, id, title, content, writer}: any) => {
   const handleFormSubmit = (formData: Record<string, string>) => {
     console.log('Form submitted with data:', formData);
     // 여기서 데이터를 처리하거나 상태를 업데이트할 수 있음
-
   };
 
   useEffect(() => {
@@ -45,8 +45,13 @@ const Modal = ({setIsOpen, id, title, content, writer}: any) => {
     return () => {
       document.removeEventListener('mousedown', handler);
     }
+  }, [setIsOpen, modalRef]);
 
-  });
+  useEffect(() => {
+    setLabel(title);
+    console.log(title);
+  }, [title]);
+
   return (
     <div
       className="z-1 fixed flex justify-center items-center bg-black bg-opacity-80 rounded-10 top-0 left-0 right-0 bottom-0">
@@ -74,22 +79,25 @@ const Modal = ({setIsOpen, id, title, content, writer}: any) => {
                   <div className="Layout-sc-1xcs6mc-0 JHhFm">
                     <h4 id="modal-root-header"
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 ivranM ezNtJL tw-title">
-                      Xwitch에 가입하세요
+                      {label === 'login' ? 'Xwitch에 로그인' : 'Xwitch에 가입하세요'}
+
                     </h4>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {title === 'login' && (
-            <ReusableForm inputs={loginForm} onSubmit={() => handleFormSubmit({})}/>
-          )}
-          {title === 'signup' && (
+          {(label === 'login' || label === 'signup') && (
             <ReusableForm
-              inputs={signupForm[currentStep - 1]}
-              onSubmit={() => handleFormSubmit({})}
+              inputs={label === 'login' ? loginForm : signupForm[currentStep - 1]}
+              onSubmit={handleFormSubmit}
               submitButtonLabel={currentStep === signupForm.length ? "가입 완료" : "다음 단계로"}
               nextStepHandler={() => setCurrentStep(currentStep + 1)}
+              previousStepHandler={() => setCurrentStep(currentStep - 1)}
+              goToSignupHandler={() => setLabel('signup')}
+              goToLoginHandler={() => setLabel('login')}
+              currentStep={currentStep}
+              formName={label}
             />
           )}
           <button

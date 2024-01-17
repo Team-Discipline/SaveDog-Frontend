@@ -5,8 +5,6 @@ function generateDummyData() {
 
     return {
         contentImg: "https://static-cdn.jtvnw.net/c3-vg/verticals/gaming.svg",
-        width: 250,
-        height: 350,
         category: categories[Math.floor(Math.random() * categories.length)],
         content_name: "talk",
         views: Math.floor(Math.random() * 50000) + 10000,

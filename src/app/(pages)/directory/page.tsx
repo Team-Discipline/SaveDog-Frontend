@@ -3,7 +3,8 @@
 import React from "react";
 import BrowseNav from "@/app/(pages)/directory/component/BrowseNav";
 import BrowseContent from "@/app/(pages)/directory/component/BrowseContent";
-import BrowseButtons from "@/app/(pages)/directory/component/BrowseButtons"; // 스타일 모듈 import
+import BrowseButtons from "@/app/(pages)/directory/component/BrowseButtons";
+import InfiniteScroll from "@/app/(pages)/directory/component/InfiniteScroll"; // 스타일 모듈 import
 
 const Page = () => {
     return (
@@ -21,6 +22,7 @@ const Page = () => {
                 {/*contnetBoxList 파일을 받아야 함*/}
                     <BrowseContent width={250} height={350}/>
             </section>
+            <InfiniteScroll/>
         </div>
     )
 }

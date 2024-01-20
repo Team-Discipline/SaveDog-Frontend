@@ -4,10 +4,8 @@ import React, {MouseEventHandler, useEffect, useState} from 'react';
 import Link from 'next/link';
 import {NavbarList} from '../constants/navbarList';
 import Search from "@/components/Search";
-import ProfileButton from "@/components/ProfileButton";
-import {el} from "date-fns/locale";
-import Modal from "@/components/Modal"; // Import NavbarList
-
+import Modal from "@/components/Modal";
+import {Dropdown} from "@/components/DropdownMenu";
 interface NavItem {
   navItem: string;
 }
@@ -15,10 +13,14 @@ interface NavItem {
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState('');
+  const [showContextMenu, setShowContextMenu] = useState(false);
   const openModalHandler = (title: string) => {
     setIsOpen(!isOpen);
     setTitle(title);
   };
+  const toggleContextMenu = () => {
+    setShowContextMenu(!showContextMenu);
+  }
 
   return (
     <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
@@ -116,8 +118,8 @@ export const Navbar = () => {
                     : null
                   }
                 </div>
-                <div data-a-target="dropdown-up" className="Layout-sc-1xcs6mc-0 bfqNgN">
-                  <ProfileButton/>
+                <div data-a-target="dropdown-up" onClick={toggleContextMenu} className="Layout-sc-1xcs6mc-0 bfqNgN">
+                  <Dropdown />
                 </div>
               </div>
             </div>

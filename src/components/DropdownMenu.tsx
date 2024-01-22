@@ -14,13 +14,21 @@ import {
 } from "@/components/ui/dropdown-menu"
 import ProfileButton from "@/components/ProfileButton";
 import {Switch} from "@/components/ui/switch";
-import React, {useState} from "react";
+import React, {MouseEventHandler, useEffect, useState} from "react";
+import Modal from "./Modal";
 
-export function Dropdown() {
+interface DropdownProps {
+  openModalHandler: (title: string) => void;
+}
+export const Dropdown: React.FC<DropdownProps> = ({openModalHandler}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
+  }
+  const handleLogin: MouseEventHandler<HTMLDivElement> = (event) => {
+    event.stopPropagation();
+    openModalHandler('login');
   }
   const handleSwitchClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
@@ -36,41 +44,28 @@ export function Dropdown() {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator/>
         <DropdownMenuGroup>
-          {/*<DropdownMenuItem>*/}
-          {/*  Profile*/}
-          {/*  <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>*/}
-          {/*</DropdownMenuItem>*/}
-          {/*<DropdownMenuItem>*/}
-          {/*  Billing*/}
-          {/*  <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>*/}
-          {/*</DropdownMenuItem>*/}
-          {/*<DropdownMenuItem>*/}
-          {/*  Settings*/}
-          {/*  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>*/}
-          {/*</DropdownMenuItem>*/}
-          {/*<DropdownMenuSub>*/}
-
-            <DropdownMenuItem>
-              <div className="inline-flex items-center w-6 h-6 ScFigure-sc-wkgzod-0 dqNaAM tw-svg">
-                <svg width="2rem" height="2rem" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd"
-                        d="M10 2c4.415 0 8 3.585 8 8s-3.585 8-8 8-8-3.585-8-8 3.585-8 8-8zm5.917 9a6.015 6.015 0 0 1-3.584 4.529A10 10 0 0 0 13.95 11h1.967zm0-2a6.015 6.015 0 0 0-3.584-4.529A10 10 0 0 1 13.95 9h1.967zm-3.98 0A8.002 8.002 0 0 0 10 4.708 8.002 8.002 0 0 0 8.063 9h3.874zm-3.874 2A8.002 8.002 0 0 0 10 15.292 8.002 8.002 0 0 0 11.937 11H8.063zM6.05 11a10 10 0 0 0 1.617 4.529A6.014 6.014 0 0 1 4.083 11H6.05zm0-2a10 10 0 0 1 1.617-4.529A6.014 6.014 0 0 0 4.083 9H6.05z"
-                        clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              {/*<DropdownMenuSubTrigger>*/}
+          <DropdownMenuSub>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>
+                <div className="inline-flex items-center w-6 h-6 ScFigure-sc-wkgzod-0 dqNaAM tw-svg">
+                  <svg width="2rem" height="2rem" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                          d="M10 2c4.415 0 8 3.585 8 8s-3.585 8-8 8-8-3.585-8-8 3.585-8 8-8zm5.917 9a6.015 6.015 0 0 1-3.584 4.529A10 10 0 0 0 13.95 11h1.967zm0-2a6.015 6.015 0 0 0-3.584-4.529A10 10 0 0 1 13.95 9h1.967zm-3.98 0A8.002 8.002 0 0 0 10 4.708 8.002 8.002 0 0 0 8.063 9h3.874zm-3.874 2A8.002 8.002 0 0 0 10 15.292 8.002 8.002 0 0 0 11.937 11H8.063zM6.05 11a10 10 0 0 0 1.617 4.529A6.014 6.014 0 0 1 4.083 11H6.05zm0-2a10 10 0 0 1 1.617-4.529A6.014 6.014 0 0 0 4.083 9H6.05z"
+                          clip-rule="evenodd"></path>
+                  </svg>
+                </div>
                 언어
-              {/*</DropdownMenuSubTrigger>*/}
-              {/*<DropdownMenuShortcut>*/}
-              {/*  <div className="ScFigure-sc-wkgzod-0 dqNaAM tw-svg">*/}
-              {/*    <svg width="2rem" height="2rem" viewBox="0 0 20 20">*/}
-              {/*      <path d="M6.5 5.5 11 10l-4.5 4.5L8 16l6-6-6-6-1.5 1.5z"></path>*/}
-              {/*    </svg>*/}
-              {/*  </div>*/}
-              {/*</DropdownMenuShortcut>*/}
-            </DropdownMenuItem>
-          {/*</DropdownMenuSub>*/}
-
+              </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem>Email</DropdownMenuItem>
+                  <DropdownMenuItem>Message</DropdownMenuItem>
+                  <DropdownMenuSeparator/>
+                  <DropdownMenuItem>More...</DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+          </DropdownMenuSub>
           <DropdownMenuItem>
             <div>
               <div
@@ -96,31 +91,8 @@ export function Dropdown() {
             </DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
-        {/*<DropdownMenuSeparator/>*/}
-        {/*<DropdownMenuGroup>*/}
-        {/*<DropdownMenuItem>Team</DropdownMenuItem>*/}
-        {/*<DropdownMenuSub>*/}
-        {/*  <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>*/}
-        {/*  <DropdownMenuPortal>*/}
-        {/*    <DropdownMenuSubContent>*/}
-        {/*      <DropdownMenuItem>Email</DropdownMenuItem>*/}
-        {/*      <DropdownMenuItem>Message</DropdownMenuItem>*/}
-        {/*      <DropdownMenuSeparator/>*/}
-        {/*      <DropdownMenuItem>More...</DropdownMenuItem>*/}
-        {/*    </DropdownMenuSubContent>*/}
-        {/*  </DropdownMenuPortal>*/}
-        {/*</DropdownMenuSub>*/}
-        {/*<DropdownMenuItem>*/}
-        {/*  New Team*/}
-        {/*  <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>*/}
-        {/*</DropdownMenuItem>*/}
-        {/*</DropdownMenuGroup>*/}
         <DropdownMenuSeparator/>
-        {/*<DropdownMenuItem>GitHub</DropdownMenuItem>*/}
-        {/*<DropdownMenuItem>Support</DropdownMenuItem>*/}
-        {/*<DropdownMenuItem disabled>API</DropdownMenuItem>*/}
-        {/*<DropdownMenuSeparator/>*/}
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogin}>
           <div className="inline-flex items-center h-6 w-6 ScIconLayout-sc-1q25cff-0 cLlPiH">
             <div className="ScAspectRatio-sc-18km980-1 doeqbO tw-aspect">
               <div className="ScAspectSpacer-sc-18km980-0 bIDIFh"></div>

@@ -13,15 +13,14 @@ interface NavItem {
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState('');
-  const [showContextMenu, setShowContextMenu] = useState(false);
   const openModalHandler = (title: string) => {
     setIsOpen(!isOpen);
     setTitle(title);
   };
-  const toggleContextMenu = () => {
-    setShowContextMenu(!showContextMenu);
-  }
 
+  const handleDropdownModal = (title: string) => {
+    openModalHandler(title);
+  }
   return (
     <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
       <div className="mx-auto px-4">
@@ -118,8 +117,8 @@ export const Navbar = () => {
                     : null
                   }
                 </div>
-                <div data-a-target="dropdown-up" onClick={toggleContextMenu} className="Layout-sc-1xcs6mc-0 bfqNgN">
-                  <Dropdown />
+                <div data-a-target="dropdown-up" className="Layout-sc-1xcs6mc-0 bfqNgN">
+                  <Dropdown openModalHandler={handleDropdownModal}/>
                 </div>
               </div>
             </div>

@@ -1,7 +1,10 @@
 "use client"
-import { useEffect, useRef } from "react";
-
-function InfiniteScroll() {
+import React, {useEffect, useRef} from "react";
+// interface MyComponentProps {
+//     children: ReactNode;
+// }
+// const InfiniteScroll: React.FC<MyComponentProps> = ({ children }) => {
+const InfiniteScroll = () => {
     const target = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {

@@ -34,7 +34,7 @@ const Search = () => {
         />
       )}
       {/* You can add a search icon or button here if needed */}
-      <button className={`w-18 ${isSmallScreen ? 'md:ml-2 mt-2' : 'md:mr-2'}`}>
+      <button className={`w-18 ${isSmallScreen ? 'md:ml-2' : 'md:mr-2'}`}>
         {/* 검색 아이콘 추가 */}
         <svg
           xmlns="http://www.w3.org/2000/svg"

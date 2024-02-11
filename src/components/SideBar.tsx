@@ -1,24 +1,36 @@
 "use client"
 
 import React, {useEffect, useState} from 'react'
-export const SideBar = ({ serverSideData }: any) => {
+
+export const SideBar = ({serverSideData}: any) => {
   const [clientSideData, setClientSideData] = useState(null);
+  const [sidebarWidth, setSidebarWidth] = useState(56);
   useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('');
+      const data = await res.json();
+      setClientSideData(data);
+    };
     if (typeof window !== 'undefined') {
-      const fetchData = async () => {
-        const res = await fetch('');
-        const data = await res.json();
-        setClientSideData(data);
-      };
       fetchData();
+      setSidebarWidth(window.innerWidth < 1200 ? 3 : 14);
+      // 화면 크기에 따른 사이드바 크기 조정
+      const handleResize = () => {
+
+        setSidebarWidth(window.innerWidth < 1200 ? 3 : 14);
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      }
     }
-  }, [])
+  }, [sidebarWidth])
 
-
-
-  return(
-    <div className="flex">
-      <div className="w-1/4 bg-gray-200 p-4">
+  return (
+    <div className={'bg-gray-200'} style={{width: `${sidebarWidth}rem`}}>
+      <div className='bg-gray-200'>
         SideBar Content
         <div>
           <h1>SSD: {serverSideData}</h1>
@@ -33,7 +45,7 @@ export async function getServerSideProps() {
   const serverSideData = 'Data from Server-Side';
 
   return {
-    props: { serverSideData },
+    props: {serverSideData},
   }
 }
 

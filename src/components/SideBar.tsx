@@ -6,6 +6,30 @@ import StreamerProfileButton from "@/components/StreamerProfileButton";
 export const SideBar = ({serverSideData}: any) => {
   const [clientSideData, setClientSideData] = useState(null);
   const [sidebarWidth, setSidebarWidth] = useState(56);
+
+  // 사이드바 테스트용 더미데이터
+  const streamerInfo = [
+    {
+      streamerName: 'rlgus1006',
+      profileImage: 'https://static-cdn.jtvnw.net/jtv_user_pictures/86edb3b8-4218-4125-827a-b93d754a00ee-profile_image-70x70.png'
+    },
+    {
+      streamerName: 'nodolly',
+      profileImage: 'https://static-cdn.jtvnw.net/jtv_user_pictures/267e8677-6d58-45ad-b64d-61400298d935-profile_image-70x70.png'
+    },
+    {
+      streamerName: 'kss7749',
+      profileImage: 'https://static-cdn.jtvnw.net/jtv_user_pictures/835fb20f-cfbb-44f4-bfe1-ba3ad23a8046-profile_image-70x70.png'
+    },
+    {
+      streamerName: 'mawang0216',
+      profileImage: 'https://static-cdn.jtvnw.net/jtv_user_pictures/2eb00bd6-38c8-48c7-aea6-7d20e12ca383-profile_image-70x70.png'
+    },
+    {
+      streamerName: 'pikra10',
+      profileImage: 'https://static-cdn.jtvnw.net/jtv_user_pictures/f1927e40-6561-4af3-970d-4711df08bb52-profile_image-70x70.jpg'
+    }
+  ]
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch('');
@@ -74,77 +98,9 @@ export const SideBar = ({serverSideData}: any) => {
                         </div>
                       </div>
                       <div className="relative InjectLayout-sc-1i43xsx-0 hWukFy tw-transition-group">
-                        <StreamerProfileButton />
-
-                        {/*<div className="ScTransitionBase-sc-hx4quq-0 hGaUsM tw-transition" aria-hidden="false"*/}
-                        {/*     style={{transitionProperty: 'transform, opacity', transitionTimingFunction: 'ease'}}>*/}
-                        {/*  <div>*/}
-                        {/*    <div className="Layout-sc-1xcs6mc-0 cwtKyw side-nav-card"*/}
-                        {/*         data-test-selector="side-nav-card-collapsed"><a*/}
-                        {/*      className="ScCoreLink-sc-16kq0mq-0 eFqEFL InjectLayout-sc-1i43xsx-0 ejKUaQ side-nav-card tw-link"*/}
-                        {/*      href="/nodolly">*/}
-                        {/*      <div className="Layout-sc-1xcs6mc-0 bgXDR side-nav-card__avatar">*/}
-                        {/*        <div className="ScAvatar-sc-144b42z-0 dmnDPS tw-avatar"><img*/}
-                        {/*          className="InjectLayout-sc-1i43xsx-0 cXFDOs tw-image tw-image-avatar"*/}
-                        {/*          alt="노돌리 (nodolly)"*/}
-                        {/*          src="https://static-cdn.jtvnw.net/jtv_user_pictures/267e8677-6d58-45ad-b64d-61400298d935-profile_image-70x70.png"/>*/}
-                        {/*        </div>*/}
-                        {/*      </div>*/}
-                        {/*    </a></div>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
-                        {/*<div className="ScTransitionBase-sc-hx4quq-0 hGaUsM tw-transition" aria-hidden="false"*/}
-                        {/*     style={{transitionProperty: 'transform, opacity', transitionTimingFunction: 'ease'}}>*/}
-                        {/*  <div>*/}
-                        {/*    <div className="Layout-sc-1xcs6mc-0 cwtKyw side-nav-card"*/}
-                        {/*         data-test-selector="side-nav-card-collapsed"><a*/}
-                        {/*      className="ScCoreLink-sc-16kq0mq-0 eFqEFL InjectLayout-sc-1i43xsx-0 ejKUaQ side-nav-card tw-link"*/}
-                        {/*      href="/kss7749">*/}
-                        {/*      <div className="Layout-sc-1xcs6mc-0 bgXDR side-nav-card__avatar">*/}
-                        {/*        <div className="ScAvatar-sc-144b42z-0 dmnDPS tw-avatar"><img*/}
-                        {/*          className="InjectLayout-sc-1i43xsx-0 cXFDOs tw-image tw-image-avatar"*/}
-                        {/*          alt="쉐리 (kss7749)"*/}
-                        {/*          src="https://static-cdn.jtvnw.net/jtv_user_pictures/835fb20f-cfbb-44f4-bfe1-ba3ad23a8046-profile_image-70x70.png"/>*/}
-                        {/*        </div>*/}
-                        {/*      </div>*/}
-                        {/*    </a></div>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
-                        {/*<div className="ScTransitionBase-sc-hx4quq-0 hGaUsM tw-transition" aria-hidden="false"*/}
-                        {/*     style={{transitionProperty: 'transform, opacity', transitionTimingFunction: 'ease'}}>*/}
-                        {/*  <div>*/}
-                        {/*    <div className="Layout-sc-1xcs6mc-0 cwtKyw side-nav-card"*/}
-                        {/*         data-test-selector="side-nav-card-collapsed"><a*/}
-                        {/*      className="ScCoreLink-sc-16kq0mq-0 eFqEFL InjectLayout-sc-1i43xsx-0 ejKUaQ side-nav-card tw-link"*/}
-                        {/*      href="/mawang0216">*/}
-                        {/*      <div className="Layout-sc-1xcs6mc-0 bgXDR side-nav-card__avatar">*/}
-                        {/*        <div className="ScAvatar-sc-144b42z-0 dmnDPS tw-avatar"><img*/}
-                        {/*          className="InjectLayout-sc-1i43xsx-0 cXFDOs tw-image tw-image-avatar"*/}
-                        {/*          alt="마왕_0216 (mawang0216)"*/}
-                        {/*          src="https://static-cdn.jtvnw.net/jtv_user_pictures/2eb00bd6-38c8-48c7-aea6-7d20e12ca383-profile_image-70x70.png"/>*/}
-                        {/*        </div>*/}
-                        {/*      </div>*/}
-                        {/*    </a></div>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
-                        {/*<div className="ScTransitionBase-sc-hx4quq-0 hGaUsM tw-transition" aria-hidden="false"*/}
-                        {/*     style={{transitionProperty: 'transform, opacity', transitionTimingFunction: 'ease'}}>*/}
-
-                        {/*  <div>*/}
-                        {/*    <div className="Layout-sc-1xcs6mc-0 cwtKyw side-nav-card"*/}
-                        {/*         data-test-selector="side-nav-card-collapsed"><a*/}
-                        {/*      className="ScCoreLink-sc-16kq0mq-0 eFqEFL InjectLayout-sc-1i43xsx-0 ejKUaQ side-nav-card tw-link"*/}
-                        {/*      href="/pikra10">*/}
-                        {/*      <div className="Layout-sc-1xcs6mc-0 bgXDR side-nav-card__avatar">*/}
-                        {/*        <div className="ScAvatar-sc-144b42z-0 dmnDPS tw-avatar"><img*/}
-                        {/*          className="InjectLayout-sc-1i43xsx-0 cXFDOs tw-image tw-image-avatar"*/}
-                        {/*          alt="재슥짱 (pikra10)"*/}
-                        {/*          src="https://static-cdn.jtvnw.net/jtv_user_pictures/f1927e40-6561-4af3-970d-4711df08bb52-profile_image-70x70.jpg"/>*/}
-                        {/*        </div>*/}
-                        {/*      </div>*/}
-                        {/*    </a></div>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
+                        {streamerInfo.map((info) => (
+                          <StreamerProfileButton key={info.streamerName} info={info}/>
+                        ))}
                       </div>
                     </div>
                   </div>

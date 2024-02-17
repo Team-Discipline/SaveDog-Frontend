@@ -177,6 +177,16 @@ section {
     padding-bottom: 0.3125rem !important;
     width: 3rem;
 }
+.kpdiXD2 {
+    display: flex !important;
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+    margin-top: 0.3125rem !important;
+    margin-bottom: 0.3125rem !important;
+    padding-top: 0.3125rem !important;
+    padding-bottom: 0.3125rem !important;
+    width: 25rem;
+}
 
 .eSFFfM {
     display: inline-flex;

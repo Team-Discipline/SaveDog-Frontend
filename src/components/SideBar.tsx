@@ -12,7 +12,7 @@ export const SideBar = ({serverSideData}: any) => {
     const handleExtend = () => {
       console.log("handle", extend);
       setExtend(!extend);
-      setSidebarWidth(!extend ? 14 : 3);
+      setSidebarWidth(!extend ? 15 : 4);
       // // //extend == false: 사이드바 닫힌 상태 & window 크기가 1200이상일때 확장가능
       // if (!extend) {
       //   setSidebarWidth(14);
@@ -113,7 +113,7 @@ export const SideBar = ({serverSideData}: any) => {
           setClientSideData(data);
         };
 
-        setSidebarWidth(window.innerWidth >= 1200 ? (extend ? 14 : 3) : 3);
+        setSidebarWidth(window.innerWidth >= 1200 ? (extend ? 15 : 3) : 3);
 
         fetchData().then(r => console.log(r));
         // 화면 크기에 따른 사이드바 크기 조정
@@ -161,7 +161,7 @@ export const SideBar = ({serverSideData}: any) => {
                   <div className="Layout-sc-1xcs6mc-0">
                     <div className="Layout-sc-1xcs6mc-0">
                       <div aria-label="추천 채널" className="Layout-sc-1xcs6mc-0 dcyYPL side-nav-section" role="group">
-                        {extend && windowWidth > 1200 ? <div className='m-4 font-semibold text-xs'><h2>추천채널</h2></div> :
+                        {extend && windowWidth > 1200 ? <div className='m-2 pt-2 font-semibold text-xs'><h2>추천채널</h2></div> :
                           <div className="InjectLayout-sc-1i43xsx-0 kBtJDm">
                             <div className="Layout-sc-1xcs6mc-0 kYEeAt side-nav-header"
                                  data-a-target="side-nav-header-collapsed">

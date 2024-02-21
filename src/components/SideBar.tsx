@@ -26,6 +26,14 @@ export const SideBar = ({serverSideData}: any) => {
     // 사이드바 테스트용 더미데이터
     const streamerInfo = [
       {
+        streamerId: 'aba4647',
+        streamerName: '랄로',
+        profileImage: "https://static-cdn.jtvnw.net/jtv_user_pictures/e85f1e19-e793-4a07-bbc5-5135981dc4f8-profile_image-70x70.png",
+        game: '마인크래프트',
+        isLive: '방송 중',
+        viewers: '2400'
+      },
+      {
         streamerId: 'airikanna_stellive',
         streamerName: '아이리_칸나',
         profileImage: "https://static-cdn.jtvnw.net/jtv_user_pictures/57ee5d17-c96e-4046-bc00-1eab91bb9466-profile_image-70x70.png",

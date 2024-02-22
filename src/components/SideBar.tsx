@@ -6,7 +6,7 @@ import StreamerProfileButton from "@/components/StreamerProfileButton";
 export const SideBar = ({serverSideData}: any) => {
     const [clientSideData, setClientSideData] = useState(null);
     const [sidebarWidth, setSidebarWidth] = useState(56);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(0);
     const [extend, setExtend] = useState(false)
 
     const handleExtend = () => {
@@ -126,12 +126,14 @@ export const SideBar = ({serverSideData}: any) => {
         fetchData().then(r => console.log(r));
         // 화면 크기에 따른 사이드바 크기 조정
 
-        window.addEventListener('resize', handleResize);
+        if (typeof window != 'undefined') {
+          window.addEventListener('resize', handleResize);
 
-        return () => {
-          window.removeEventListener('resize', handleResize);
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          }
         }
-      }, [extend, window.innerWidth]
+      }, [extend]
     )
 
     return (
@@ -139,7 +141,7 @@ export const SideBar = ({serverSideData}: any) => {
         <div className='bg-gray-200' style={{position: 'relative'}}>
           <div>
             <div
-              className={`Layout-sc-1xcs6mc-0 collapse-toggle ${window.innerWidth < 1200 ? 'hidden' : extend ? 'gazthU' : 'kpdiXD'}`}>
+              className={`Layout-sc-1xcs6mc-0 collapse-toggle ${ typeof window !== 'undefined' && window.innerWidth < 1200 ? 'hidden' : extend ? 'gazthU' : 'kpdiXD'}`}>
               <div className="inline-flex kBtJDm">
                 <button onClick={handleExtend} className="ScCoreButton-sc-ocjdkq-0 bTXTVH ScButtonIcon-sc-9yap0r-0 eSFFfM"
                         aria-label="측면 탐색 확장"

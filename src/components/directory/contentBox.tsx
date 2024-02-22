@@ -22,15 +22,12 @@ interface ContentBoxProps {
 const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
                                              category , content_name, views, tags}): ReactElement => {
     const [isHovered, setIsHovered] = useState(false);
-
     const handleMouseOver = () => {
         setIsHovered(true);
     };
-
     const handleMouseOut = () => {
         setIsHovered(false);
     };
-
     return (
         <div className="w-1/4 flex flex-col">
             <div
@@ -87,13 +84,24 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
             </div>
             <div className="content-details ml-1">
                 <div><span>{content_name}</span></div>
-                <span>{views}</span>
+                <span>{views} viewers</span>
+                <br/>
+                {/*추후 연동 후 MAP으로 변경 예정*/}
+                <a href="src/components#"
+                   className="bg-gray-200 hover:bg-gray-300 py-1 px-2 rounded-lg text-sm">Technology</a>
+                &nbsp;
+                <a href="src/components#"
+                   className="bg-gray-200 hover:bg-gray-300 py-1 px-2 rounded-lg text-sm">Programming</a>
+
+
                 {/*<div className="tags">*/}
                 {/*    {tags.map(({ tag }, index) => (*/}
                 {/*        <span key={index}>{tag}</span>*/}
                 {/*    ))}*/}
                 {/*</div>*/}
+
             </div>
+
         </div>
 
     );

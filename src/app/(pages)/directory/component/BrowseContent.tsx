@@ -1,5 +1,5 @@
 import { ContentList } from "@/app/(pages)/directory/list/contentList";
-import ContentBox from "@/components/contentBox";
+import ContentBox from "@/components/directory/contentBox";
 import React from "react";
 interface BrowseContentProps {
     width: number;

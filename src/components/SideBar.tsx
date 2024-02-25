@@ -6,19 +6,13 @@ import StreamerProfileButton from "@/components/StreamerProfileButton";
 export const SideBar = ({serverSideData}: any) => {
     const [clientSideData, setClientSideData] = useState(null);
     const [sidebarWidth, setSidebarWidth] = useState(56);
-    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [extend, setExtend] = useState(false)
 
     const handleExtend = () => {
       console.log("handle", extend);
       setExtend(!extend);
       setSidebarWidth(!extend ? 15 : 4);
-      // // //extend == false: 사이드바 닫힌 상태 & window 크기가 1200이상일때 확장가능
-      // if (!extend) {
-      //   setSidebarWidth(14);
-      // } else {
-      //   setSidebarWidth(3);
-      // }
     }
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -116,14 +110,14 @@ export const SideBar = ({serverSideData}: any) => {
     ]
     useEffect(() => {
         const fetchData = async () => {
-          const res = await fetch('');
-          const data = await res.json();
-          setClientSideData(data);
+          // const res = await fetch('');
+          // const data = await res.json();
+          // setClientSideData(data);
         };
 
         setSidebarWidth(window.innerWidth >= 1200 ? (extend ? 15 : 3) : 3);
 
-        fetchData().then(r => console.log(r));
+        // fetchData().then(r => console.log(r));
         // 화면 크기에 따른 사이드바 크기 조정
 
         if (typeof window != 'undefined') {
@@ -133,7 +127,7 @@ export const SideBar = ({serverSideData}: any) => {
             window.removeEventListener('resize', handleResize);
           }
         }
-      }, [extend]
+      }, [extend, window.innerWidth]
     )
 
     return (
@@ -148,8 +142,8 @@ export const SideBar = ({serverSideData}: any) => {
                         data-a-target="side-nav-arrow">
                   <div className="ButtonIconFigure-sc-1emm8lf-0 fjwcvR" style={{width: '1.25rem', height: '1.25rem'}}>
                     <div className="ScIconLayout-sc-1q25cff-0 cASLMj">
-                      <div className="ScAspectRatio-sc-18km980-1 doeqbO tw-aspect">
-                        <div className="ScAspectSpacer-sc-18km980-0 bIDIFh"></div>
+                      <div className="doeqbO1 tw-aspect ScAspectSpacer-sc-18km980-0">
+                        <div className="ScAspectSpacer-sc-18km980-0 bIDIFh1"></div>
 
                         <svg width="100%" height="100%" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"
                              role="presentation" aria-hidden="true" focusable="false"

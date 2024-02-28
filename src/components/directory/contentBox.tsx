@@ -37,18 +37,18 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
                     marginLeft: '2%',
                     marginTop: '2%',
                     // @ts-ignore
-                    '--c': '#1095c1',
+                    '--c': 'purple',
                     '--b': '1px',
                     '--d': '8px',
                     '--_s': `calc(var(--d) + var(--b))`,
                     color: 'var(--c)',
-                    border: '1px solid #0000',
-                    background: `
+                    border: '1px solid white',
+                    background: isHovered ? `
                     conic-gradient(at left var(--d) bottom var(--d),
                     #0000 90deg, rgb(255 255 255 /0.3) 0 225deg,rgb(255 255 255 /0.6) 0) border-box,
                     conic-gradient(at left var(--_s) bottom var(--_s),
                     #0000 90deg,var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b))  border-box
-                `,
+                `:"",
                     transform: isHovered ? 'translate(0,0)' : `translate(calc(var(--d)/-1),var(--d))`,
                     clipPath: isHovered ?
                         `
@@ -70,16 +70,16 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
                         var(--d) calc(100% - var(--d))
                         )`,
                     transition: '0.1s',
-                    width: `90%`,
+                    width: `${width}px`,
                     height: `${height}px`,
                 }}
             >
                 <div>
-                        <div className={`image-container`}>
-                            <Link href={`/category/${category}`}>
-                                <img alt="" src={content} width={width} height={height}/>
-                            </Link>
-                        </div>
+                    <div className="pl-2 pb-2" style={{width:`${width}`, height:`${height}`}}>
+                        <Link className="w-full h-full" href={`/category/${category}`}>
+                            <img className="w-full h-full" alt="content_name" src={content} />
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div className="content-details ml-1">

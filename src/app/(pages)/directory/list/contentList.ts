@@ -4,7 +4,7 @@ function generateDummyData() {
     const tags = ["game", "music", "art", "technology", "programming"];
 
     return {
-        contentImg: "https://static-cdn.jtvnw.net/c3-vg/verticals/gaming.svg",
+        contentImg: "images/Just Chatting.jpeg",
         category: categories[Math.floor(Math.random() * categories.length)],
         content_name: "talk",
         views: Math.floor(Math.random() * 50000) + 10000,

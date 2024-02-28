@@ -1,18 +1,23 @@
+"use client"
 import React, { useState, useEffect } from 'react';
 
 const Search = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
+
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 600);
     };
 
-    window.addEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      setIsSmallScreen(window.innerWidth <= 600);
+      window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []); // 빈 배열을 전달하여 컴포넌트가 처음 마운트될 때만 이펙트 실행
 
   return (

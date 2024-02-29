@@ -1,16 +1,26 @@
 "use client"
 
-import React from 'react';
+import React, {MouseEventHandler, useEffect, useState} from 'react';
 import Link from 'next/link';
 import {NavbarList} from '../constants/navbarList';
 import Search from "@/components/Search";
-import ProfileButton from "@/components/ProfileButton"; // Import NavbarList
-
+import Modal from "@/components/Modal";
+import {Dropdown} from "@/components/DropdownMenu";
 interface NavItem {
   navItem: string;
 }
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  const openModalHandler = (title: string) => {
+    setIsOpen(!isOpen);
+    setTitle(title);
+  };
+
+  const handleDropdownModal = (title: string) => {
+    openModalHandler(title);
+  }
   return (
     <nav className="bg-gray-100 h-12" style={{background: 'white', boxShadow: 'var(--shadow-elevation-1)'}}>
       <div className="mx-auto px-4">
@@ -96,15 +106,19 @@ export const Navbar = () => {
             <div className="fnsfLT">
               <div className="cQZlhV">
                 <div className='flex items-center space-x-1'>
-                  <Link href='/login' className='py-2 px-3' style={{width: '72px'}}>
+                  <button className='py-2 px-3' style={{width: '72px'}} onClick={() => openModalHandler('login')}>
                     로그인
-                  </Link>
-                  <Link href='/signup' className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}>
+                  </button>
+                  <button className='py-2 px-3 bg-gray hover: text-gray' style={{width: '88px'}}onClick={() => openModalHandler('signup')}>
                     회원가입
-                  </Link>
+                  </button>
+                  {isOpen ?
+                    <Modal setIsOpen={setIsOpen} title={title}/>
+                    : null
+                  }
                 </div>
                 <div data-a-target="dropdown-up" className="Layout-sc-1xcs6mc-0 bfqNgN">
-                  <ProfileButton/>
+                  <Dropdown openModalHandler={handleDropdownModal}/>
                 </div>
               </div>
             </div>

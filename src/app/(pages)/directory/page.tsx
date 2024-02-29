@@ -1,5 +1,5 @@
 // Page.js
-
+'use client'
 import React from "react";
 import BrowseContent from "@/app/(pages)/directory/component/BrowseContent";
 import BrowseButtons from "@/app/(pages)/directory/component/BrowseButtons";
@@ -7,9 +7,13 @@ import InfiniteScroll from "@/app/(pages)/directory/component/InfiniteScroll";
 import Tabs from "@/components/Tabs";
 import {DirectorySearch} from "@/components/directory/DirectorySearch";
 import {DirectorySort} from "@/components/directory/DirectorySort";
+import {ContentList} from "@/app/(pages)/directory/list/contentList";
+import {useSortedContents} from "@/app/(pages)/directory/hooks/useSortedContents";
 
 
 const Page = () => {
+    const { contents, setSortOption } = useSortedContents(ContentList);
+
     return (
         <div className="w-full flex flex-col justify-center items-center">
             <section className="my-6 text-6xl font-bold">
@@ -28,13 +32,13 @@ const Page = () => {
                     </div>
                     <div className="flex w-1/3">
                         <span className="w-1/2 flex justify-end items-center mr-4 font-bold">Sort by</span>
-                        <DirectorySort/>
+                        <DirectorySort onChange={setSortOption} />
                     </div>
                 </div>
             </section>
             <section>
                 {/*contnetBoxList 파일을 받아야 함*/}
-                <BrowseContent width={250} height={350}/>
+                <BrowseContent ContentList={contents} width={250} height={350}/>
             </section>
             <InfiniteScroll/>
         </div>

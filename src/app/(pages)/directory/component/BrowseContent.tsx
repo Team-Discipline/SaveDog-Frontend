@@ -1,12 +1,19 @@
-import { ContentList } from "@/app/(pages)/directory/list/contentList";
 import ContentBox from "@/components/directory/contentBox";
 import React from "react";
 interface BrowseContentProps {
     width: number;
     height: number;
+    ContentList: Content[]; // Include ContentList as an array of Content in the props
 }
 
-const BrowseContent: React.FC<BrowseContentProps> = ({ width, height }) => {
+interface Content {
+    contentImg: string; // 이미지 경로
+    category: string; // 카테고리
+    content_name: string; // 컨텐츠 이름
+    views: number; // 조회수
+    tags: string[]; // 태그 목록
+}
+const BrowseContent: React.FC<BrowseContentProps> = ({ ContentList, width, height }) => {
     return (
         <div className="w-full flex justify-start items-start flex-wrap">
             {ContentList.map(

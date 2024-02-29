@@ -12,12 +12,12 @@ export default function Tabs() {
         <div className="">
             <ul className="flex">
                 <li onClick={() => setOpenTab(1)} className={`mr-1 ${openTab === 1 ? '-mb-px' : ''}`}>
-                    <a href="#" className={`bg-white inline-block py-2 px-4 font-semibold ${openTab === 1 ? activeClasses : inactiveClasses}`}>
+                    <a href="/directory" className={`bg-white inline-block py-2 px-4 font-semibold ${openTab === 1 ? activeClasses : inactiveClasses}`}>
                         Categories
                     </a>
                 </li>
                 <li onClick={() => setOpenTab(2)} className={`mr-1 ${openTab === 2 ? '-mb-px' : ''}`}>
-                    <a href="#" className={`bg-white inline-block py-2 px-4 font-semibold ${openTab === 2 ? activeClasses : inactiveClasses}`}>
+                    <a href="/directory/all" className={`bg-white inline-block py-2 px-4 font-semibold ${openTab === 2 ? activeClasses : inactiveClasses}`}>
                         Live Channels
                     </a>
                 </li>

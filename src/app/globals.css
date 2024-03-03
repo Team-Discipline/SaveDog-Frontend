@@ -476,7 +476,7 @@ section {
 }
 
 .iA-duFH {
-    overflow: hidden !important;
+    /*overflow: hidden !important;*/
     position: relative !important;
     -webkit-box-flex: 1 !important;
     flex-grow: 1 !important;
@@ -491,7 +491,7 @@ section {
     display: flex !important;
     flex-wrap: nowrap !important;
     position: relative !important;
-    overflow: auto !important;
+    /*overflow: hidden !important;*/
     height: 100% !important;
 }
 

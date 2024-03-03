@@ -131,7 +131,7 @@ export const SideBar = ({serverSideData}: any) => {
     )
 
     return (
-      <div className={'bg-gray-200'} style={{width: `${sidebarWidth}rem`}}>
+      <div className={'bg-gray-200 h-full'} style={{width: `${sidebarWidth}rem`}}>
         <div className='bg-gray-200' style={{position: 'relative'}}>
           <div>
             <div

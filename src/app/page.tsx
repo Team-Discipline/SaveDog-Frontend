@@ -8,7 +8,7 @@ export const metadata = {
 }
 export default function Home() {
   return (
-    <div className='mt-[200px]'>
+    <div className='mt-[200px] w-full h-full'>
       <p className='font-bold text-center uppercase text-3xl'>Xwitch</p>
       {/*<DogsListView images={imageUrls} />*/}
     </div>

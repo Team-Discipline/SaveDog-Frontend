@@ -15,7 +15,7 @@ const Page = () => {
     const { contents, setSortOption } = useSortedContents(ContentList);
 
     return (
-        <div className="h-fit w-full flex flex-col justify-center items-center">
+        <div className="w-full h-fit p-10 flex flex-col justify-center items-center">
             <section className="my-6 text-6xl font-bold">
                 <h1>Browse</h1>
             </section>

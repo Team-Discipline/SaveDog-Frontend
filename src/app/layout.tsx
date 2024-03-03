@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-    <body className="flex flex-col h-[95vh]">
+    <body className="flex flex-col h-screen">
     <div className="flex-0 w-full h-12">
       <Navbar/>
     </div>

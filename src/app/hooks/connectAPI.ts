@@ -1,8 +1,3 @@
-interface propsType {
-  user: string,
-  password: string
-}
-
 export async function connectAPI(props: Record<string, string>) {
   try {
     const response = await fetch('http://localhost:8080/api/login', {
@@ -11,7 +6,7 @@ export async function connectAPI(props: Record<string, string>) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user: props.id,
+        username: props.username,
         password: props.password
       }),
     });

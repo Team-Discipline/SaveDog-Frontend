@@ -6,7 +6,7 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
   const [label, setLabel] = useState('');
   const [currentStep, setCurrentStep] = useState<number>(1);
   const loginForm = [
-    { name: 'id', label: 'id', type: 'id' },
+    { name: 'username', label: 'username', type: 'string' },
     { name: 'password', label: 'password', type: 'password' },
   ];
 

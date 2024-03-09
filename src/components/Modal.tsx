@@ -13,13 +13,10 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
     [
       { name: 'id', label: 'id', type: 'id' },
       { name: 'password', label: 'Password', type: 'password' },
-    ],
-    [
+      { name: 'confirm password', label: 'Confirm Password', type: 'confirm password' },
+      // { name: 'email', label: 'email'}
       { name: 'phone', label: 'Phone', type: 'tel', pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}' },
     ],
-    [
-      { name: 'confirm password', label: 'Confirm Password', type: 'confirm password' },
-    ]
   ];
 
   const closeModalHandler = () => {
@@ -30,6 +27,8 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
 
   const handleFormSubmit = (formData: Record<string, string>) => {
     console.log('Form submitted with data:', formData);
+
+    closeModalHandler();
     // 여기서 데이터를 처리하거나 상태를 업데이트할 수 있음
   };
 
@@ -54,7 +53,7 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
 
   return (
     <div
-      className="z-1 fixed flex justify-center items-center bg-black bg-opacity-80 rounded-10 top-0 left-0 right-0 bottom-0">
+      className="z-50 fixed flex justify-center items-center bg-black bg-opacity-80 rounded-10 top-0 left-0 right-0 bottom-0">
       <div className="max-w-full ">
         <div
           className="flex flex-col p-12 z-50 bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-black rounded-8 block"
@@ -91,7 +90,7 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
             <ReusableForm
               inputs={label === 'login' ? loginForm : signupForm[currentStep - 1]}
               onSubmit={handleFormSubmit}
-              submitButtonLabel={currentStep === signupForm.length ? "가입 완료" : "다음 단계로"}
+              submitButtonLabel={"가입 완료"}
               nextStepHandler={() => setCurrentStep(currentStep + 1)}
               previousStepHandler={() => setCurrentStep(currentStep - 1)}
               goToSignupHandler={() => setLabel('signup')}

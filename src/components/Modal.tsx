@@ -47,8 +47,8 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
       className="z-50 fixed flex justify-center items-center bg-black bg-opacity-80 rounded-10 top-0 left-0 right-0 bottom-0">
       <div className="max-w-full ">
         <div
-          className="flex flex-col p-12 z-50 bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-black rounded-8 block"
-          style={{width: '472px', height: '379.5px'}}
+          className="flex flex-col p-12 z-50 bg-black absolute h-fit top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-black rounded-8 block"
+          style={{width: '472px'}}
           ref={modalRef}>
           {/*<div className='bg-coz-purple-600 text-white border-none px-20 py-20 rounded-30 cursor-grab ModalBtn'>*/}
           <div>

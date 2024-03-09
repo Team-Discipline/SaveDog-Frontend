@@ -122,8 +122,8 @@ const ReusableForm: React.FC<FormProps> = ({
       formData[input.name] = input.initialValue || '';
     })
     // 폼 데이터를 사용하여 원하는 작업 수행
-      console.log("handleSubmit",formData);
     onSubmit(formData);
+    console.log(formData);
   };
 
   return (

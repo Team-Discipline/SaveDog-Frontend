@@ -1,13 +1,12 @@
 import {useEffect, useRef, useState} from "react";
 import ReusableForm from "@/components/Form";
-import {connectAPI} from "@/app/hooks/connectAPI";
 
 const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
   const [label, setLabel] = useState('');
   const [currentStep, setCurrentStep] = useState<number>(1);
   const loginForm = [
-    { name: 'username', label: 'username', type: 'string' },
-    { name: 'password', label: 'password', type: 'password' },
+    { name: '아이디', label: '아이디', type: 'id' },
+    { name: '비밀번호', label: '비밀번호', type: 'password' },
   ];
 
   const signupForm = [
@@ -29,11 +28,8 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
   const handleFormSubmit = (formData: Record<string, string>) => {
     console.log('Form submitted with data:', formData);
 
-    // 여기서 데이터를 처리하거나 상태를 업데이트할 수 있음
-    connectAPI(formData).then(r => {
-      // console.log(r);
-    })
     closeModalHandler();
+    // 여기서 데이터를 처리하거나 상태를 업데이트할 수 있음
   };
 
   useEffect(() => {

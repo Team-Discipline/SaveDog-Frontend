@@ -1,24 +1,11 @@
 import {useEffect, useRef, useState} from "react";
 import ReusableForm from "@/components/Form";
 import {connectAPI} from "@/app/hooks/connectAPI";
+import {loginForm, signupForm} from "@/constants/formInputs";
 
 const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
   const [label, setLabel] = useState('');
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const loginForm = [
-    { name: 'username', label: 'username', type: 'string' },
-    { name: 'password', label: 'password', type: 'password' },
-  ];
-
-  const signupForm = [
-    [
-      { name: 'id', label: 'id', type: 'id' },
-      { name: 'password', label: 'Password', type: 'password' },
-      { name: 'confirm password', label: 'Confirm Password', type: 'confirm password' },
-      // { name: 'email', label: 'email'}
-      { name: 'phone', label: 'Phone', type: 'tel', pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}' },
-    ],
-  ];
 
   const closeModalHandler = () => {
     setIsOpen(false);

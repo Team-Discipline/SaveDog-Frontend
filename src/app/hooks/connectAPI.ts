@@ -5,7 +5,7 @@ interface propsType {
 
 export async function connectAPI(props: Record<string, string>) {
   try {
-    const response = await fetch('/user/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

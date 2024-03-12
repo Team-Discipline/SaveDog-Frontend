@@ -1,7 +1,10 @@
 import React from "react";
 import CustomLink from "@/components/CustomLink";
+import {useRecoilState} from "recoil";
+import {foundStreamerState} from "@/recoil/recoilAtoms";
 
 const ChannelInfoContent: React.FC = () => {
+  const [foundStreamer] = useRecoilState(foundStreamerState);
   return (
     <div className="channel-info-content">
       <section className="Layout-sc-1xcs6mc-0 skip-to-target section-one" id="offline-channel-main-content"
@@ -22,9 +25,9 @@ const ChannelInfoContent: React.FC = () => {
               </div>
 
               <div className="Layout-sc-1xcs6mc-0 hdoiLi">
-                <a href="/tmxk319">
+                <a href={`/pages/${foundStreamer?.streamerId}`}>
                   <div className="Layout-sc-1xcs6mc-0 fcaZHY"><h1
-                    className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 ivranM ezNtJL tw-title">괴물쥐123</h1>
+                    className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 ivranM ezNtJL tw-title">{foundStreamer?.streamerName}</h1>
                     <div className="Layout-sc-1xcs6mc-0 izrobB">
                       <div className="ScFigure-sc-wkgzod-0 cKJUoi tw-svg">
                         <svg width="16" height="16" viewBox="0 0 16 16" aria-label="인증된 파트너">

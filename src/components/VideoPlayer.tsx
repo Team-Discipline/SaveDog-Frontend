@@ -1,12 +1,14 @@
 import SettingButton from "@/components/SettingButton";
 import React, {CSSProperties, useState} from "react";
+import {useRecoilState} from "recoil";
+import {foundStreamerState} from "@/recoil/recoilAtoms";
 
 interface ChildComponentProps {
   videoWrapperStyles: CSSProperties;
 }
 const VideoPlayer: React.FC<ChildComponentProps> = ({videoWrapperStyles}) => {
   const [volume, setVolume] = useState("0.5");
-
+  const [foundStreamer] = useRecoilState(foundStreamerState)
   const handleVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
     setVolume(event.target.value)
   }
@@ -106,7 +108,7 @@ const VideoPlayer: React.FC<ChildComponentProps> = ({videoWrapperStyles}) => {
                   <div
                     className="Layout-sc-1xcs6mc-0 egOlwh ScTransitionBase-sc-hx4quq-0 dtAmne follow-panel-overlay tw-transition"
                     data-test-selector="follow-panel-overlay" aria-hidden="false"><p
-                    className="CoreText-sc-1txzju1-0 jvPbzs">tmxk319 채널을 팔로우하고 생방송 알림 받기</p>
+                    className="CoreText-sc-1txzju1-0 jvPbzs">{foundStreamer?.streamerId} 채널을 팔로우하고 생방송 알림 받기</p>
                     <div className="Layout-sc-1xcs6mc-0 jnMKgW">
                       <div className="Layout-sc-1xcs6mc-0 ijOchg">
                         <div>

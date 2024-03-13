@@ -13,8 +13,8 @@ const StreamerPage: React.FC = () => {
   const currentURL = window.location.href.split('/');
   const streamerIdFromURL = currentURL[currentURL.length - 1];
   const [foundStreamer, setFoundStreamer] = useRecoilState(foundStreamerState);
-  // const [online, setOnline] = useState(true);
-  // const persistentPlayerContent = document.querySelector('[data-target="persistent-player-content"]');
+  const [online, setOnline] = useState(true);
+  const persistentPlayerContent = document.querySelector('[data-target="persistent-player-content"]');
   const videoWrapperRef = useRef<HTMLDivElement | null>(null);
   const [videoWrapperStyles, setVideoWrapperStyles] = useState({
     position: 'absolute' as 'absolute',
@@ -43,9 +43,11 @@ const StreamerPage: React.FC = () => {
   //   = useMemo(() => {
   //   return streamerInfo.find((streamer) => streamer.streamerId === streamerIdFromURL);
   // }, [streamerIdFromURL]);
-  const streamerNameString = () => {
-    return foundStreamer?.streamerId.repeat(16).trim();
-  }
+  const streamerNameString =  (foundStreamer?.streamerId + ' ').repeat(16).trim();
+  const backgroundImage = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='200px'>`
+    + `<text x='15' y='27%' fill='white' font-size='4rem' font-weight='600' opacity='0.1' font-family='Roobert,Helvetica Neue,Helvetica,Arial,sans-serif'>${streamerNameString}</text>`
+    + `<text x='5' y='60%' fill='white' font-size='4rem' font-weight='600' opacity='0.1' font-family='Roobert,Helvetica Neue,Helvetica,Arial,sans-serif'>319 ${streamerNameString}</text>`
+    + `<text x='0' y='93%' fill='white' font-size='4rem' font-weight='600' opacity='0.1' font-family='Roobert,Helvetica Neue,Helvetica,Arial,sans-serif'>xk319 ${streamerNameString}</text></svg>")`;
   useEffect(() => {
     const updateStyles = () => {
       const element = videoWrapperRef.current;
@@ -87,7 +89,7 @@ const StreamerPage: React.FC = () => {
 
       <div className="channel-root channel-root--home channel-root--unanimated"
            style={{
-             backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='200px'><text x='15' y='27%' fill='white' font-size='4rem' font-weight='600' opacity='0.1' font-family='Roobert,Helvetica Neue,Helvetica,Arial,sans-serif'>${streamerNameString}</text><text x='5' y='60%' fill='white' font-size='4rem' font-weight='600' opacity='0.1' font-family='Roobert,Helvetica Neue,Helvetica,Arial,sans-serif'>319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk</text><text x='0' y='93%' fill='white' font-size='4rem' font-weight='600' opacity='0.1' font-family='Roobert,Helvetica Neue,Helvetica,Arial,sans-serif'>xk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tmxk319 tm</text></svg>")`,
+             backgroundImage: backgroundImage,
              backgroundColor: '#9147ff',
            }}
       >

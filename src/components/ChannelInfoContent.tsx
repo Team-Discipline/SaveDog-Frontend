@@ -18,7 +18,7 @@ const ChannelInfoContent: React.FC = () => {
                 <div aria-label="채널 오프라인" className="Layout-sc-1xcs6mc-0 cwtKyw">
                   <div className="ScTokenOverrideCSSVars-sc-13alv3m-0">
                     <div className="ScAccentRegionCssVars-sc-1gab5n-0">
-                      <CustomLink size={'72'} status={'offline'} href={'/tmxk319'}/>
+                      <CustomLink size={'72'} status={'offline'} href={`/pages/${foundStreamer?.streamerId}`}/>
                     </div>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="true"
                     tabIndex={0}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319">
+                    href={`/pages/${foundStreamer?.streamerId}`}>
                     <div className="Layout-sc-1xcs6mc-0 bsXwrR">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">홈</p>
@@ -237,7 +237,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319/about">
+                    href={`/pages/${foundStreamer?.streamerId}/about`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">정보</p>
@@ -254,7 +254,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319/schedule">
+                    href={`/pages/${foundStreamer?.streamerId}/schedule`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">일정</p>
@@ -271,7 +271,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319/videos">
+                    href={`/pages/${foundStreamer?.streamerId}/videos`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">동영상</p>
@@ -288,7 +288,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319">
+                    href={`/pages/${foundStreamer?.streamerId}`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb">
                         <div className="Layout-sc-1xcs6mc-0 xxjeD">

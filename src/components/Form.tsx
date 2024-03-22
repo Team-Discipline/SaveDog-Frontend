@@ -86,16 +86,16 @@ const ReusableForm: React.FC<FormProps> = ({
       [inputName]: e.target.value,
     });
   };
-  const handleNextStep = () => {
-    if (nextStepHandler && typeof nextStepHandler === 'function') {
-      nextStepHandler();
-    }
-  }
-  const handlePreviousStep = () => {
-    if (previousStepHandler && typeof previousStepHandler === 'function') {
-      previousStepHandler();
-    }
-  }
+  // const handleLoginSubmit = () => {
+  //   if (nextStepHandler && typeof nextStepHandler === 'function') {
+  //     nextStepHandler();
+  //   }
+  // }
+  // const handleSignupSubmit = () => {
+  //   if (previousStepHandler && typeof previousStepHandler === 'function') {
+  //     previousStepHandler();
+  //   }
+  // }
   // const handleDateChange = (date: Date | null, datepickerName: string) => {
   //   setSelectedDate(date)
   //   setFormData({
@@ -118,9 +118,12 @@ const ReusableForm: React.FC<FormProps> = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    inputs.forEach((input) => {
+      formData[input.name] = input.initialValue || '';
+    })
     // 폼 데이터를 사용하여 원하는 작업 수행
+      console.log("handleSubmit",formData);
     onSubmit(formData);
-    console.log(formData);
   };
 
   return (
@@ -189,7 +192,7 @@ const ReusableForm: React.FC<FormProps> = ({
       {/*)}*/}
       <br/>
       {/* '다음 단계로' 버튼 렌더링 */}
-      {formName === 'login' && currentStep !== undefined &&(
+      {formName === 'login' &&(
         <div className='flex flex-row justify-between'>
           <div>
             {currentStep === 1 && (
@@ -198,7 +201,7 @@ const ReusableForm: React.FC<FormProps> = ({
               </button>
             )}
           </div>
-          <button type="button" onClick={handleNextStep} style={{
+          <button type="button" onClick={(e: React.MouseEvent)=>onSubmit(formData)} style={{
             background: '#4caf50',
             color: 'white',
             padding: "10px",
@@ -209,21 +212,14 @@ const ReusableForm: React.FC<FormProps> = ({
           </button>
         </div>
       )}
-      {formName === 'signup' && currentStep !== undefined && (
+      {formName === 'signup' &&(
         <div className='flex flex-row justify-between'>
           <div>
-            {currentStep === 1 && (
               <button type="button" onClick={handleToLogin}>
                 로그인 ㄱㄱ
               </button>
-            )}
-            {currentStep > 1 && (
-              <button type="button" onClick={handlePreviousStep}>
-                {previousButtonLabel}
-              </button>
-            )}
           </div>
-          <button type="button" onClick={handleNextStep} style={{
+          <button type="button" onClick={(e: React.MouseEvent)=>onSubmit(formData)} style={{
             background: '#4caf50',
             color: 'white',
             padding: "10px",
@@ -234,39 +230,6 @@ const ReusableForm: React.FC<FormProps> = ({
           </button>
         </div>
       )}
-
-      {/*/!* 'Submit' 버튼 또는 '로그인으로 이동' 버튼 렌더링 *!/*/}
-      {/*{!nextStepHandler &&(*/}
-      {/*  <div className='flex flex-row justify-between'>*/}
-      {/*    {currentStep === 1 && (*/}
-      {/*      <button type="button" onClick={handleToLogin}>*/}
-      {/*        {previousButtonLabel}*/}
-      {/*      </button>*/}
-      {/*    )}*/}
-      {/*    {currentStep > 1 && (*/}
-      {/*      <button type="button" onClick={handlePreviousStep}>*/}
-      {/*        {previousButtonLabel}*/}
-      {/*      </button>*/}
-      {/*    )}*/}
-      {/*    {currentStep < signupForm.length && (*/}
-      {/*      <button type="button" onClick={handleNextStep}>*/}
-      {/*        {submitButtonLabel}*/}
-      {/*      </button>*/}
-      {/*    )}*/}
-      {/*    {currentStep === signupForm.length && (*/}
-      {/*      <button type="submit" style={{*/}
-      {/*        background: '#4caf50',*/}
-      {/*        color: 'white',*/}
-      {/*        padding: "10px",*/}
-      {/*        borderRadius: "4px",*/}
-      {/*        cursor: "pointer",*/}
-      {/*      }}>*/}
-      {/*        {submitButtonLabel}*/}
-      {/*      </button>*/}
-      {/*    )}*/}
-      {/*  </div>*/}
-      {/*)}*/}
-
     </form>
   );
 };

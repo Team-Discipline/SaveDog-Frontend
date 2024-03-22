@@ -1,26 +1,11 @@
 import {useEffect, useRef, useState} from "react";
 import ReusableForm from "@/components/Form";
+import {connectAPI} from "@/app/hooks/connectAPI";
+import {loginForm, signupForm} from "@/constants/formInputs";
 
 const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
   const [label, setLabel] = useState('');
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const loginForm = [
-    { name: '아이디', label: '아이디', type: 'id' },
-    { name: '비밀번호', label: '비밀번호', type: 'password' },
-  ];
-
-  const signupForm = [
-    [
-      { name: 'id', label: 'id', type: 'id' },
-      { name: 'password', label: 'Password', type: 'password' },
-    ],
-    [
-      { name: 'phone', label: 'Phone', type: 'tel', pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}' },
-    ],
-    [
-      { name: 'confirm password', label: 'Confirm Password', type: 'confirm password' },
-    ]
-  ];
 
   const closeModalHandler = () => {
     setIsOpen(false);
@@ -30,7 +15,12 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
 
   const handleFormSubmit = (formData: Record<string, string>) => {
     console.log('Form submitted with data:', formData);
+
     // 여기서 데이터를 처리하거나 상태를 업데이트할 수 있음
+    connectAPI(formData).then(r => {
+      // console.log(r);
+    })
+    closeModalHandler();
   };
 
   useEffect(() => {
@@ -54,11 +44,11 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
 
   return (
     <div
-      className="z-1 fixed flex justify-center items-center bg-black bg-opacity-80 rounded-10 top-0 left-0 right-0 bottom-0">
+      className="z-50 fixed flex justify-center items-center bg-black bg-opacity-80 rounded-10 top-0 left-0 right-0 bottom-0">
       <div className="max-w-full ">
         <div
-          className="flex flex-col p-12 z-50 bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-black rounded-8 block"
-          style={{width: '472px', height: '379.5px'}}
+          className="flex flex-col p-12 z-50 bg-black absolute h-fit top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-black rounded-8 block"
+          style={{width: '472px'}}
           ref={modalRef}>
           {/*<div className='bg-coz-purple-600 text-white border-none px-20 py-20 rounded-30 cursor-grab ModalBtn'>*/}
           <div>
@@ -91,7 +81,7 @@ const Modal = ({ setIsOpen, id, title, content, writer }: any) => {
             <ReusableForm
               inputs={label === 'login' ? loginForm : signupForm[currentStep - 1]}
               onSubmit={handleFormSubmit}
-              submitButtonLabel={currentStep === signupForm.length ? "가입 완료" : "다음 단계로"}
+              submitButtonLabel={"가입 완료"}
               nextStepHandler={() => setCurrentStep(currentStep + 1)}
               previousStepHandler={() => setCurrentStep(currentStep - 1)}
               goToSignupHandler={() => setLabel('signup')}

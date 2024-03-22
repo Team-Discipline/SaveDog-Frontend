@@ -27,5 +27,3 @@ export async function connectAPI(props: propsType) {
         console.error('Error:', error);
     }
 }
-
-

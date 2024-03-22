@@ -1,7 +1,10 @@
 import React from "react";
 import CustomLink from "@/components/CustomLink";
+import {useRecoilState} from "recoil";
+import {foundStreamerState} from "@/recoil/recoilAtoms";
 
 const ChannelInfoContent: React.FC = () => {
+  const [foundStreamer] = useRecoilState(foundStreamerState);
   return (
     <div className="channel-info-content">
       <section className="Layout-sc-1xcs6mc-0 skip-to-target section-one" id="offline-channel-main-content"
@@ -15,16 +18,16 @@ const ChannelInfoContent: React.FC = () => {
                 <div aria-label="채널 오프라인" className="Layout-sc-1xcs6mc-0 cwtKyw">
                   <div className="ScTokenOverrideCSSVars-sc-13alv3m-0">
                     <div className="ScAccentRegionCssVars-sc-1gab5n-0">
-                      <CustomLink size={'72'} status={'offline'} href={'/tmxk319'}/>
+                      <CustomLink size={'72'} status={'offline'} href={`/pages/${foundStreamer?.streamerId}`}/>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="Layout-sc-1xcs6mc-0 hdoiLi">
-                <a href="/tmxk319">
+                <a href={`/pages/${foundStreamer?.streamerId}`}>
                   <div className="Layout-sc-1xcs6mc-0 fcaZHY"><h1
-                    className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 ivranM ezNtJL tw-title">괴물쥐123</h1>
+                    className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 ivranM ezNtJL tw-title">{foundStreamer?.streamerName}</h1>
                     <div className="Layout-sc-1xcs6mc-0 izrobB">
                       <div className="ScFigure-sc-wkgzod-0 cKJUoi tw-svg">
                         <svg width="16" height="16" viewBox="0 0 16 16" aria-label="인증된 파트너">
@@ -147,45 +150,45 @@ const ChannelInfoContent: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <div className="Layout-sc-1xcs6mc-0 hPfSAv">
-                  <div className="Layout-sc-1xcs6mc-0 cVmNmw">
-                    <div className="Layout-sc-1xcs6mc-0 hPfSAv">
-                      <div className="InjectLayout-sc-1i43xsx-0 kBtJDm">
-                        <button aria-label="구독하기" data-a-target="subscribe-button"
-                                data-test-selector="subscribe-button__dropdown"
-                                className="ScCoreButton-sc-ocjdkq-0 ScCoreButtonSecondary-sc-ocjdkq-2 bTXTVH cegTsp">
-                          <div className="ScCoreButtonLabel-sc-s7h2b7-0 bQmsUi">
-                            <div className="Layout-sc-1xcs6mc-0 iyOCUH">
-                              <div className="ScCoreButtonIcon-sc-ypak37-0 evnVIg tw-core-button-icon">
-                                <div className="ScFigure-sc-wkgzod-0 fewniq tw-svg"
-                                     data-a-selector="tw-core-button-icon">
-                                  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                                    <path fillRule="evenodd"
-                                          d="M11.456 8.255 10 5.125l-1.456 3.13-3.49.485 2.552 2.516-.616 3.485L10 13.064l3.01 1.677-.616-3.485 2.553-2.516-3.491-.485zM7.19 6.424l-4.2.583c-.932.13-1.318 1.209-.664 1.853l3.128 3.083-.755 4.272c-.163.92.876 1.603 1.722 1.132L10 15.354l3.579 1.993c.846.47 1.885-.212 1.722-1.132l-.755-4.272 3.128-3.083c.654-.644.268-1.723-.664-1.853l-4.2-.583-1.754-3.77c-.406-.872-1.706-.872-2.112 0L7.19 6.424z"
-                                          clipRule="evenodd"></path>
-                                  </svg>
-                                </div>
-                              </div>
-                            </div>
-                            <div data-a-target="tw-core-button-label-text"
-                                 className="Layout-sc-1xcs6mc-0 cFsYRp">구독하기
-                            </div>
-                            <div className="Layout-sc-1xcs6mc-0 kyglys">
-                              <div className="ScCoreButtonIcon-sc-ypak37-0 evnVIg tw-core-button-icon">
-                                <div className="ScFigure-sc-wkgzod-0 fewniq tw-svg"
-                                     data-a-selector="tw-core-button-icon">
-                                  <svg width="20" height="20" viewBox="0 0 20 20">
-                                    <path d="M14.5 6.5 10 11 5.5 6.5 4 8l6 6 6-6-1.5-1.5z"></path>
-                                  </svg>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/*<div className="Layout-sc-1xcs6mc-0 hPfSAv">*/}
+                {/*  <div className="Layout-sc-1xcs6mc-0 cVmNmw">*/}
+                {/*    <div className="Layout-sc-1xcs6mc-0 hPfSAv">*/}
+                {/*      <div className="InjectLayout-sc-1i43xsx-0 kBtJDm">*/}
+                {/*        <button aria-label="구독하기" data-a-target="subscribe-button"*/}
+                {/*                data-test-selector="subscribe-button__dropdown"*/}
+                {/*                className="ScCoreButton-sc-ocjdkq-0 ScCoreButtonSecondary-sc-ocjdkq-2 bTXTVH cegTsp">*/}
+                {/*          <div className="ScCoreButtonLabel-sc-s7h2b7-0 bQmsUi">*/}
+                {/*            <div className="Layout-sc-1xcs6mc-0 iyOCUH">*/}
+                {/*              <div className="ScCoreButtonIcon-sc-ypak37-0 evnVIg tw-core-button-icon">*/}
+                {/*                <div className="ScFigure-sc-wkgzod-0 fewniq tw-svg"*/}
+                {/*                     data-a-selector="tw-core-button-icon">*/}
+                {/*                  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">*/}
+                {/*                    <path fillRule="evenodd"*/}
+                {/*                          d="M11.456 8.255 10 5.125l-1.456 3.13-3.49.485 2.552 2.516-.616 3.485L10 13.064l3.01 1.677-.616-3.485 2.553-2.516-3.491-.485zM7.19 6.424l-4.2.583c-.932.13-1.318 1.209-.664 1.853l3.128 3.083-.755 4.272c-.163.92.876 1.603 1.722 1.132L10 15.354l3.579 1.993c.846.47 1.885-.212 1.722-1.132l-.755-4.272 3.128-3.083c.654-.644.268-1.723-.664-1.853l-4.2-.583-1.754-3.77c-.406-.872-1.706-.872-2.112 0L7.19 6.424z"*/}
+                {/*                          clipRule="evenodd"></path>*/}
+                {/*                  </svg>*/}
+                {/*                </div>*/}
+                {/*              </div>*/}
+                {/*            </div>*/}
+                {/*            <div data-a-target="tw-core-button-label-text"*/}
+                {/*                 className="Layout-sc-1xcs6mc-0 cFsYRp">구독하기*/}
+                {/*            </div>*/}
+                {/*            <div className="Layout-sc-1xcs6mc-0 kyglys">*/}
+                {/*              <div className="ScCoreButtonIcon-sc-ypak37-0 evnVIg tw-core-button-icon">*/}
+                {/*                <div className="ScFigure-sc-wkgzod-0 fewniq tw-svg"*/}
+                {/*                     data-a-selector="tw-core-button-icon">*/}
+                {/*                  <svg width="20" height="20" viewBox="0 0 20 20">*/}
+                {/*                    <path d="M14.5 6.5 10 11 5.5 6.5 4 8l6 6 6-6-1.5-1.5z"></path>*/}
+                {/*                  </svg>*/}
+                {/*                </div>*/}
+                {/*              </div>*/}
+                {/*            </div>*/}
+                {/*          </div>*/}
+                {/*        </button>*/}
+                {/*      </div>*/}
+                {/*    </div>*/}
+                {/*  </div>*/}
+                {/*</div>*/}
               </div>
               <div className="Layout-sc-1xcs6mc-0 jOVwMQ">
                 <button className="ScCoreButton-sc-ocjdkq-0 bTXTVH ScButtonIcon-sc-9yap0r-0 eSFFfM"
@@ -216,7 +219,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="true"
                     tabIndex={0}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319">
+                    href={`/pages/${foundStreamer?.streamerId}`}>
                     <div className="Layout-sc-1xcs6mc-0 bsXwrR">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">홈</p>
@@ -234,7 +237,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319/about">
+                    href={`/pages/${foundStreamer?.streamerId}/about`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">정보</p>
@@ -251,7 +254,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319/schedule">
+                    href={`/pages/${foundStreamer?.streamerId}/schedule`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">일정</p>
@@ -268,7 +271,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319/videos">
+                    href={`/pages/${foundStreamer?.streamerId}/videos`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb"><p
                         className="CoreText-sc-1txzju1-0 ScTitleText-sc-d9mj2s-0 AAWwv ezNtJL tw-title">동영상</p>
@@ -285,7 +288,7 @@ const ChannelInfoContent: React.FC = () => {
                     aria-selected="false"
                     tabIndex={-1}
                     className="ScInteractive-sc-iekec1-0 cmTyEs"
-                    href="/tmxk319">
+                    href={`/pages/${foundStreamer?.streamerId}`}>
                     <div className="Layout-sc-1xcs6mc-0 juXjJY">
                       <div className="Layout-sc-1xcs6mc-0 ScTextWrapper-sc-iekec1-1 gyvaIN eMPFcb">
                         <div className="Layout-sc-1xcs6mc-0 xxjeD">

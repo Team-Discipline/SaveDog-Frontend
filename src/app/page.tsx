@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Head from "next/head";
-import DogsListView from "@/components/DogsListView";
 
 export const metadata = {
   title: 'Contact',

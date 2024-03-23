@@ -15,7 +15,7 @@ interface Content {
 }
 const BrowseContent: React.FC<BrowseContentProps> = ({ ContentList, width, height }) => {
     return (
-        <div className="w-full flex justify-start items-start flex-wrap">
+        <div className="w-full flex flex-wrap justify-between gap-4">
             {ContentList.map(
                 ({ contentImg, category, content_name, views, tags }, index) => (
                     <ContentBox

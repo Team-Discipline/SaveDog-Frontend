@@ -19,8 +19,14 @@ interface ContentBoxProps {
 
 }
 
-const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
-                                             category , content_name, views, tags}): ReactElement => {
+const ContentBox: FC<ContentBoxProps> = ({ content,
+                                             width,
+                                             height,
+                                             category ,
+                                             content_name,
+                                             views,
+                                             tags}):
+    ReactElement => {
     const [isHovered, setIsHovered] = useState(false);
     const handleMouseOver = () => {
         setIsHovered(true);
@@ -29,7 +35,7 @@ const ContentBox: FC<ContentBoxProps> = ({ content, width, height,
         setIsHovered(false);
     };
     return (
-        <div className="w-1/4 flex flex-col">
+        <div className="">
             <div
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}

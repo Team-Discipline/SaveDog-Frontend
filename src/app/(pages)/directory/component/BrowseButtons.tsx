@@ -10,7 +10,7 @@ interface ButtonItem {
 
 const BrowseButtons: React.FC = () => {
     return (
-        <div className="flex flex-wrap justify-center my-5">
+        <div className="grid grid-cols-5 gap-3">
             {ButtonList.map(({ buttonItem, buttonImg, category }: ButtonItem, index: number) => (
                 <BrowseButton
                     key={index}

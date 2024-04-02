@@ -15,7 +15,7 @@ interface Content {
 
 const BrowseContent: React.FC<BrowseContentProps> = ({ ContentList }) => {
     return (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {ContentList.map(({ contentImg, category, content_name, views, tags }, index) => (
                 <ContentBox
                     key={index}

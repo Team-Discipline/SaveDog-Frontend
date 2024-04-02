@@ -38,7 +38,7 @@ const Page = () => {
             </section>
             <section>
                 {/*contnetBoxList 파일을 받아야 함*/}
-                <BrowseContent ContentList={contents} width={350} height={250}/>
+                <BrowseContent ContentList={contents}/>
             </section>
             <InfiniteScroll/>
         </div>
